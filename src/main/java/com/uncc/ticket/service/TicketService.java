@@ -15,20 +15,20 @@ public class TicketService {
     private TicketRepository ticketRepository;
 
     @Autowired
-    public TicketService(TicketRepository ticketRepository){
-        this.ticketRepository=ticketRepository;
+    public TicketService(TicketRepository ticketRepository) {
+        this.ticketRepository = ticketRepository;
     }
 
     @Transactional
-    public TicketEntity storeTicket(TicketEntity tickets){
+    public TicketEntity storeTicket(TicketEntity tickets) {
         return ticketRepository.save(tickets);
     }
 
-    public List<TicketEntity> getAllTickets(){
+    public List<TicketEntity> getAllTickets() {
         return ticketRepository.findAll();
     }
 
-    public List<TicketEntity> getAllTicketsByUser(UsersEntity user){
+    public List<TicketEntity> getAllTicketsByUser(UsersEntity user) {
         return ticketRepository.findAllByUsers(user);
     }
 
@@ -40,4 +40,7 @@ public class TicketService {
     public void deleteById(Long id) {
         ticketRepository.deleteById(id);
     }
+
+
+
 }
